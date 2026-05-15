@@ -9,6 +9,9 @@ permissions:
 jobs:
   build_site:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: anything/apps/web
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,7 +26,7 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: anything/apps/web/dist
   deploy:
     needs: build_site
     runs-on: ubuntu-latest
