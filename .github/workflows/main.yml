@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: apps/web
+        # Zkoušíme dvojitou složku anything podle tvé cesty v PC
+        working-directory: anything/anything/apps/web
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,7 +27,7 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: apps/web/dist
+          path: anything/anything/apps/web/dist
   deploy:
     needs: build_site
     runs-on: ubuntu-latest
